@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadro Sinóptico Mexx</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Iconos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-[#121212] text-white p-10 font-sans">
+
+    <!-- Título -->
+    <h1 class="text-4xl font-bold text-orange-500 mb-8">
+        Cuadro Sinóptico - Mexx
+    </h1>
+
+    <!-- Contenedor -->
+    <div id="tree"></div>
+
+    <!-- === SECCIÓN AGREGADA: LO MÁS VENDIDO === -->
+    <div class="mt-16 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-orange-500 mb-8 flex items-center gap-3">
+            <i data-lucide="flame" class="w-9 h-9"></i>
+            Lo más vendido
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Producto 1 -->
+            <div class="bg-zinc-800 rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                <div class="relative">
+                    <img src="pc-gamer-rtx4060.png" alt="PC Gamer RTX 4060" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-2xl flex items-center gap-1">
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                        TOP 1
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-1">PC Gamer RTX 4060</h3>
+                    <p class="text-zinc-400 text-sm mb-4">Intel i5-13400F • 16GB DDR5 • 1TB SSD</p>
+                    <div class="flex items-baseline justify-between">
+                        <div class="text-3xl font-bold text-orange-400">$1.299.999</div>
+                        <button onclick="alert('Producto agregado al carrito')" 
+                                class="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-2xl text-sm font-medium transition flex items-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="bg-zinc-800 rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                <div class="relative">
+                    <img src="monitor-27-144hz.png" alt="Monitor 27 144Hz" class="w-full h-64 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-1">Monitor 27" 144Hz Curvo</h3>
+                    <p class="text-zinc-400 text-sm mb-4">VA • 1ms • HDMI + DP</p>
+                    <div class="flex items-baseline justify-between">
+                        <div class="text-3xl font-bold text-orange-400">$449.999</div>
+                        <button onclick="alert('Producto agregado al carrito')" 
+                                class="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-2xl text-sm font-medium transition flex items-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="bg-zinc-800 rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                <div class="relative">
+                    <img src="teclado-mecanico-rgb.png" alt="Teclado Mecánico RGB" class="w-full h-64 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-1">Teclado Mecánico RGB</h3>
+                    <p class="text-zinc-400 text-sm mb-4">Switches Red • Outemu • 104 teclas</p>
+                    <div class="flex items-baseline justify-between">
+                        <div class="text-3xl font-bold text-orange-400">$79.999</div>
+                        <button onclick="alert('Producto agregado al carrito')" 
+                                class="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-2xl text-sm font-medium transition flex items-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="bg-zinc-800 rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                <div class="relative">
+                    <img src="auriculares-gaming.png" alt="Auriculares Gaming" class="w-full h-64 object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-1">Auriculares Gaming Wireless</h3>
+                    <p class="text-zinc-400 text-sm mb-4">7.1 Surround • 50mm • 40h batería</p>
+                    <div class="flex items-baseline justify-between">
+                        <div class="text-3xl font-bold text-orange-400">$59.999</div>
+                        <button onclick="alert('Producto agregado al carrito')" 
+                                class="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-2xl text-sm font-medium transition flex items-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- === SECCIÓN AGREGADA: OFERTAS === -->
+    <div class="mt-20 max-w-7xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold text-orange-500 flex items-center gap-3">
+                <i data-lucide="percent" class="w-9 h-9"></i>
+                Ofertas del mes
+            </h2>
+            <a href="#" onclick="alert('Ver todas las ofertas')" 
+               class="text-orange-400 hover:text-orange-300 flex items-center gap-2 text-lg font-medium">
+                Ver todas las ofertas 
+                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Oferta 1 -->
+            <div class="bg-zinc-800 rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 relative">
+                <div class="relative">
+                    <img src="notebook-msi-gaming.png" alt="Notebook MSI Gaming" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-4 py-1 rounded-2xl">-25%</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-1">Notebook MSI Gaming GF63</h3>
+                    <p class="text-zinc-400 text-sm mb-3 line-through text-zinc-500">$1.199.999</p>
+                    <div class="flex items-baseline justify-between">
+                        <div class="text-3xl font-bold text-orange-400">$899.999</div>
+                        <button onclick="alert('Producto agregado al carrito')" 
+                                class="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-2xl text-sm font-medium transition flex items-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oferta 2 -->
+            <div class="bg-zinc-800 rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 relative">
+                <div class="relative">
+                    <img src="rtx-4070ti.png" alt="RTX 4070 Ti" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-4 py-1 rounded-2xl">-15%</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-1">Placa de Video RTX 4070 Ti</h3>
+                    <p class="text-zinc-400 text-sm mb-3 line-through text-zinc-500">$949.999</p>
+                    <div class="flex items-baseline justify-between">
+                        <div class="text-3xl font-bold text-orange-400">$749.999</div>
+                        <button onclick="alert('Producto agregado al carrito')" 
+                                class="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-2xl text-sm font-medium transition flex items-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oferta 3 -->
+            <div class="bg-zinc-800 rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 relative">
+                <div class="relative">
+                    <img src="ram-32gb-ddr5.png" alt="RAM 32GB DDR5" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-4 py-1 rounded-2xl">-20%</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-1">Kit RAM 32GB DDR5 6000MHz</h3>
+                    <p class="text-zinc-400 text-sm mb-3 line-through text-zinc-500">$169.999</p>
+                    <div class="flex items-baseline justify-between">
+                        <div class="text-3xl font-bold text-orange-400">$129.999</div>
+                        <button onclick="alert('Producto agregado al carrito')" 
+                                class="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-2xl text-sm font-medium transition flex items-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oferta 4 -->
+            <div class="bg-zinc-800 rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 relative">
+                <div class="relative">
+                    <img src="ssd-2tb-nvme.png" alt="SSD 2TB NVMe" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-4 py-1 rounded-2xl">-30%</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-semibold text-xl mb-1">SSD NVMe 2TB Kingston KC3000</h3>
+                    <p class="text-zinc-400 text-sm mb-3 line-through text-zinc-500">$229.999</p>
+                    <div class="flex items-baseline justify-between">
+                        <div class="text-3xl font-bold text-orange-400">$149.999</div>
+                        <button onclick="alert('Producto agregado al carrito')" 
+                                class="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-2xl text-sm font-medium transition flex items-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+const data = {
+    name: "Mexx",
+    icon: "gamepad-2",
+    children: [
+        {
+            name: "PCs Armadas",
+            icon: "monitor",
+            children: [
+                { name: "Hogar y Oficina" },
+                { name: "Entretenimiento" },
+                { name: "Gamers" }
+            ]
+        },
+        {
+            name: "Componentes",
+            icon: "cpu",
+            children: [
+                { name: "Procesadores" },
+                { name: "RAM" },
+                { name: "Placas de Video" },
+                { name: "Almacenamiento" }
+            ]
+        },
+        {
+            name: "Periféricos",
+            icon: "mouse",
+            children: [
+                { name: "Monitores" },
+                { name: "Teclados" },
+                { name: "Mouses" },
+                { name: "Auriculares" }
+            ]
+        },
+        {
+            name: "Notebooks",
+            icon: "laptop",
+            children: [
+                { name: "Notebooks" },
+                { name: "Mini PC" }
+            ]
+        }
+    ]
+};
+
+function crearNodo(nodo, root = false) {
+
+    const contenedor = document.createElement("div");
+    contenedor.className = "ml-6 mt-4";
+
+    const tarjeta = document.createElement("div");
+    tarjeta.className = "flex items-center gap-2 bg-zinc-800 px-4 py-2 rounded cursor-pointer hover:bg-orange-500 transition";
+
+    if(root){
+        tarjeta.className = "flex items-center gap-2 bg-orange-600 px-6 py-3 rounded text-xl font-bold";
+    }
+
+    // icono
+    if(nodo.icon){
+        const icon = document.createElement("i");
+        icon.setAttribute("data-lucide", nodo.icon);
+        icon.className = "w-5 h-5";
+        tarjeta.appendChild(icon);
+    }
+
+    // texto
+    const texto = document.createElement("span");
+    texto.textContent = nodo.name;
+    tarjeta.appendChild(texto);
+
+    contenedor.appendChild(tarjeta);
+
+    // hijos
+    if(nodo.children){
+        const hijos = document.createElement("div");
+        hijos.className = "ml-6 border-l border-orange-500 pl-4 animate-fade-in";
+        hijos.style.display = "none";
+
+        nodo.children.forEach(h => {
+            hijos.appendChild(crearNodo(h));
+        });
+
+        tarjeta.onclick = () => {
+            hijos.style.display = hijos.style.display === "none" ? "block" : "none";
+        };
+
+        contenedor.appendChild(hijos);
+    }
+
+    return contenedor;
+}
+
+// render
+document.getElementById("tree").appendChild(crearNodo(data, true));
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>
