@@ -3,7 +3,7 @@ const data = {
     name: "Menu",
     children: [
         {
-            name: "PCs Armadas",
+            name: "PCs Armadass",
             children: [
                 { name: "Hogar y Oficina", link: "hogar-oficina.html" },
                 { name: "Gamers", link: "gamers.html" }
