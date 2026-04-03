@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCs Hogar y Oficina - Mexx</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body class="bg-[#121212] text-white font-sans">
+
+<!-- NAV -->
+<div class="bg-zinc-900 p-5 flex justify-between items-center shadow-lg">
+    <h1 class="text-2xl font-bold text-orange-500">Mexx</h1>
+    <a href="index.html" class="text-orange-400 hover:text-orange-300 flex items-center gap-2">
+        <i data-lucide="arrow-left"></i> Volver
+    </a>
+</div>
+
+<!-- TÍTULO -->
+<div class="max-w-7xl mx-auto p-10">
+    <h2 class="text-4xl font-bold text-orange-500 mb-4">
+        PCs Hogar y Oficina
+    </h2>
+    <p class="text-zinc-400 mb-10">
+        Equipos ideales para estudio, trabajo y uso diario. Rendimiento fluido y silencioso.
+    </p>
+
+    <!-- GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- PC 1 -->
+        <div class="bg-zinc-800 rounded-3xl overflow-hidden hover:-translate-y-2 transition">
+            <img src="pc-oficina1.png" class="w-full h-60 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold">PC Oficina Básica</h3>
+                <p class="text-zinc-400 text-sm mt-2 mb-4">
+                    Intel i3 • 8GB RAM • SSD 240GB
+                </p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl text-orange-400 font-bold">$299.999</span>
+                    <button onclick="alert('Agregado al carrito')" 
+                        class="bg-orange-500 px-5 py-2 rounded-xl hover:bg-orange-600 flex items-center gap-2">
+                        <i data-lucide="shopping-cart"></i> Agregar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PC 2 -->
+        <div class="bg-zinc-800 rounded-3xl overflow-hidden hover:-translate-y-2 transition">
+            <img src="pc-oficina2.png" class="w-full h-60 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold">PC Oficina Plus</h3>
+                <p class="text-zinc-400 text-sm mt-2 mb-4">
+                    Ryzen 5 • 16GB RAM • SSD 480GB
+                </p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl text-orange-400 font-bold">$449.999</span>
+                    <button onclick="alert('Agregado al carrito')" 
+                        class="bg-orange-500 px-5 py-2 rounded-xl hover:bg-orange-600 flex items-center gap-2">
+                        <i data-lucide="shopping-cart"></i> Agregar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PC 3 -->
+        <div class="bg-zinc-800 rounded-3xl overflow-hidden hover:-translate-y-2 transition">
+            <img src="pc-oficina3.png" class="w-full h-60 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold">PC Oficina Pro</h3>
+                <p class="text-zinc-400 text-sm mt-2 mb-4">
+                    Intel i5 • 16GB RAM • SSD 1TB
+                </p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl text-orange-400 font-bold">$599.999</span>
+                    <button onclick="alert('Agregado al carrito')" 
+                        class="bg-orange-500 px-5 py-2 rounded-xl hover:bg-orange-600 flex items-center gap-2">
+                        <i data-lucide="shopping-cart"></i> Agregar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+lucide.createIcons();
+</script>
+
+</body>
+</html>
