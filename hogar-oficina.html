@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hogar y Oficina</title>
+
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="js/main.js" defer></script>
+<script>
+const seccion = {
+    titulo: "PCs Hogar y Oficina",
+    descripcion: "Equipos ideales para estudio, trabajo y uso diario.",
+    productos: [
+        { nombre: "PC Básica", specs: "i3 • 8GB • SSD 240GB", precio: 299999, img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7", desc: "Ideal para tareas básicas, Word, Excel y navegación." },
+        { nombre: "PC Plus", specs: "Ryzen 5 • 16GB", precio: 449999, img: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5", desc: "Perfecta para multitarea y trabajo diario." },
+        { nombre: "PC Pro", specs: "i5 • 16GB • 1TB", precio: 599999, img: "https://images.unsplash.com/photo-1585076641399-5c06d1b3365f", desc: "Alto rendimiento para uso intensivo." },
+        { nombre: "Mini PC", specs: "Compacta • 8GB", precio: 249999, img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db", desc: "Ahorro de espacio y bajo consumo." }
+    ]
+};
+</script>
+
+</head>
+<body>
+<div class="p-6 border-b border-zinc-800 bg-[#0f0f0f]/80 backdrop-blur sticky top-0 z-50">
+    <h1 class="header-title">Mexx</h1>
+    <p class="header-desc" id="descripcion"></p>
+</div>
+
+<div id="tree" class="p-6"></div>
+
+<div class="max-w-7xl mx-auto px-6 pb-10">
+    <h2 id="titulo" class="text-3xl font-semibold text-white mb-6"></h2>
+    <div id="productos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+</div>
+
+<div id="modal" class="modal fixed inset-0 bg-black/60 hidden items-center justify-center z-50">
+    <div class="modal-content bg-zinc-900 rounded-3xl max-w-4xl w-full p-6 relative">
+        <button onclick="cerrarModal()" class="absolute top-4 right-4 bg-zinc-700 p-2 rounded-full hover:bg-red-500 transition">
+            <i data-lucide="x"></i>
+        </button>
+        <div id="modalContenido" class="grid md:grid-cols-2 gap-6"></div>
+    </div>
+</div>
+</body>
+</html>
