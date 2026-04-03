@@ -228,37 +228,37 @@ const data = {
             name: "PCs Armadas",
             icon: "monitor",
             children: [
-                { name: "Hogar y Oficina" },
-                { name: "Entretenimiento" },
-                { name: "Gamers" }
+                { name: "Hogar y Oficina", link: "#" },
+                { name: "Entretenimiento", link: "#" },
+                { name: "Gamers", link: "#" }
             ]
         },
         {
             name: "Componentes",
             icon: "cpu",
             children: [
-                { name: "Procesadores" },
-                { name: "RAM" },
-                { name: "Placas de Video" },
-                { name: "Almacenamiento" }
+                { name: "Procesadores", link: "#" },
+                { name: "RAM", link: "#" },
+                { name: "Placas de Video", link: "#" },
+                { name: "Almacenamiento", link: "#" }
             ]
         },
         {
             name: "Periféricos",
             icon: "mouse",
             children: [
-                { name: "Monitores" },
-                { name: "Teclados" },
-                { name: "Mouses" },
-                { name: "Auriculares" }
+                { name: "Monitores", link: "#" },
+                { name: "Teclados", link: "#" },
+                { name: "Mouses", link: "#" },
+                { name: "Auriculares", link: "#" }
             ]
         },
         {
             name: "Notebooks",
             icon: "laptop",
             children: [
-                { name: "Notebooks" },
-                { name: "Mini PC" }
+                { name: "Notebooks", link: "#" },
+                { name: "Mini PC", link: "#" }
             ]
         }
     ]
@@ -300,11 +300,17 @@ function crearNodo(nodo, root = false) {
         nodo.children.forEach(h => {
             hijos.appendChild(crearNodo(h));
         });
+        
+    tarjeta.onclick = () => {
+    // 👉 si tiene link (los hijos), navega
+    if(nodo.link){
+        location.href = nodo.link;
+        return;
+    }
 
-        tarjeta.onclick = () => {
-            hijos.style.display = hijos.style.display === "none" ? "block" : "none";
-        };
-
+    // 👉 si tiene hijos, despliega
+    hijos.style.display = hijos.style.display === "none" ? "block" : "none";
+};
         contenedor.appendChild(hijos);
     }
 
