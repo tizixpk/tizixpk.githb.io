@@ -1,13 +1,13 @@
 /* ================================================================
-   MEXX — main.js
-   Acá va toda la lógica e interactividad del sitio.
-   Se carga al final del body, cuando el HTML ya está listo.
+   Mamani`s — main.js
+   toda la lógica e interactividad del sitio.
+   Se carga al final del body.
 ================================================================ */
 
 
 /* ── 1. DATOS DEL MENÚ ───────────────────────────────────────────
    Un array de objetos que representa las categorías y subcategorías.
-   Si queremos agregar una categoría nueva, solo tocamos este array.
+   agregar una categoría nueva ---> solo tocamos este array.
 ------------------------------------------------------------------ */
 const menuData = [
     {
