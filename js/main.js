@@ -14,37 +14,37 @@ const menuData = [
         name: "PCs Armadas",
         icon: "monitor",
         children: [
-            { name: "Hogar y Oficina",  link: "hogaryoficina.html" },
-            { name: "Entretenimiento",  link: "#" },
-            { name: "Gamers",           link: "#" }
+            { name: "Hogar y Oficina",  link: "hogar-oficina.html" },
+            { name: "Entretenimiento",  link: "entretenimiento.html" },
+            { name: "Gamers",           link: "gamers.html" }
         ]
     },
     {
         name: "Componentes",
         icon: "cpu",
         children: [
-            { name: "Procesadores",     link: "#" },
-            { name: "RAM",              link: "#" },
-            { name: "Placas de Video",  link: "#" },
-            { name: "Almacenamiento",   link: "#" }
+            { name: "Procesadores",     link: "procesadores.html" },
+            { name: "RAM",              link: "ram.html" },
+            { name: "Placas de Video",  link: "placas-de-video.html" },
+            { name: "Almacenamiento",   link: "almacenamiento,html" }
         ]
     },
     {
         name: "Periféricos",
         icon: "mouse",
         children: [
-            { name: "Monitores",        link: "#" },
-            { name: "Teclados",         link: "#" },
-            { name: "Mouses",           link: "#" },
-            { name: "Auriculares",      link: "#" }
+            { name: "Monitores",        link: "monitores.html" },
+            { name: "Teclados",         link: "teclados.html" },
+            { name: "Mouses",           link: "mouses.html" },
+            { name: "Auriculares",      link: "auriculares.html" }
         ]
     },
     {
         name: "Notebooks",
         icon: "laptop",
         children: [
-            { name: "Notebooks",        link: "#" },
-            { name: "Mini PC",          link: "#" }
+            { name: "Notebooks",        link: "notebooks.html" },
+            { name: "Mini PC",          link: "mini-pcs.html" }
         ]
     }
 ];
