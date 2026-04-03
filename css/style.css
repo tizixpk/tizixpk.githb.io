@@ -1,14 +1,12 @@
 /* ================================================================
-   MEXX — style.css
-   Acá van todos los estilos visuales del sitio.
-   Separado del HTML para mantener el código ordenado.
+   Mamani`s — style.css
+   Estilos visuales del sitio.
+   Separado del HTML para mantener el código ordenado como dice cerso
 ================================================================ */
 
-
 /* ── VARIABLES GLOBALES ──────────────────────────────────────────
-   Con variables podemos cambiar colores desde un solo lugar.
-   Si mañana queremos cambiar el naranja, lo cambiamos acá
-   y se actualiza en todo el sitio automáticamente.
+   Si mañana quiero cambiar el naranja, lo cambio desde aka
+   y se actualiza en todo el sitio automáticamente r piola no?
 ------------------------------------------------------------------ */
 :root {
     --orange:    #f97316;   /* color principal de la marca */
@@ -23,7 +21,8 @@
 
 
 /* ── RESET Y BASE ────────────────────────────────────────────────
-   Eliminamos márgenes y paddings que el navegador pone por defecto.
+   Eliminamos márgenes y paddings que el navegador pone por defecto
+   ya q es malisimo por no decir otra cosa.
 ------------------------------------------------------------------ */
 * {
     box-sizing: border-box;
