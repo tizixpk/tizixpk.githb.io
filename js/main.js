@@ -1,16 +1,19 @@
-// ================= MENU =================
 const data = {
     name: "Menu",
+    icon: "gamepad-2",
     children: [
         {
-            name: "PCs Armadass",
+            name: "PCs Armadas",
+            icon: "monitor",
             children: [
-                { name: "Hogar y Oficina", link: "hogar-oficina.html" },
-                { name: "Gamers", link: "gamers.html" }
+                { name: "Hogar y Oficina", link: "hogaryoficina.html" },
+                { name: "Entretenimiento", link: "#" },
+                { name: "Gamers", link: "#" }
             ]
         },
         {
             name: "Componentes",
+            icon: "cpu",
             children: [
                 { name: "Procesadores", link: "#" },
                 { name: "RAM", link: "#" },
@@ -20,6 +23,7 @@ const data = {
         },
         {
             name: "Periféricos",
+            icon: "mouse",
             children: [
                 { name: "Monitores", link: "#" },
                 { name: "Teclados", link: "#" },
@@ -29,6 +33,7 @@ const data = {
         },
         {
             name: "Notebooks",
+            icon: "laptop",
             children: [
                 { name: "Notebooks", link: "#" },
                 { name: "Mini PC", link: "#" }
@@ -37,81 +42,65 @@ const data = {
     ]
 };
 
-function crearNodo(nodo) {
-    const cont = document.createElement("div");
-    const btn = document.createElement("div");
+function crearNodo(nodo, root = false) {
 
-    btn.className = "menu-btn";
-    btn.textContent = nodo.name;
-    cont.appendChild(btn);
+    const contenedor = document.createElement("div");
+    contenedor.className = "ml-6 mt-4";
+
+    const tarjeta = document.createElement("div");
+    tarjeta.className = "flex items-center gap-2 bg-zinc-800 px-4 py-2 rounded cursor-pointer hover:bg-orange-500 transition";
+
+    if(root){
+        tarjeta.className = "flex items-center gap-2 bg-orange-600 px-6 py-3 rounded text-xl font-bold";
+    }
+
+    // icono
+    if(nodo.icon){
+        const icon = document.createElement("i");
+        icon.setAttribute("data-lucide", nodo.icon);
+        icon.className = "w-5 h-5";
+        tarjeta.appendChild(icon);
+    }
+
+    // texto
+    const texto = document.createElement("span");
+    texto.textContent = nodo.name;
+    tarjeta.appendChild(texto);
+
+    contenedor.appendChild(tarjeta);
+
+    // hijos
+    let hijos = null;
 
     if(nodo.children){
-        const hijos = document.createElement("div");
-        hijos.className = "ml-4 hidden";
+        hijos = document.createElement("div");
+        hijos.className = "ml-6 border-l border-orange-500 pl-4 animate-fade-in";
+        hijos.style.display = "none";
 
-        nodo.children.forEach(h => hijos.appendChild(crearNodo(h)));
+        nodo.children.forEach(h => {
+            hijos.appendChild(crearNodo(h));
+        });
 
-        btn.onclick = () => hijos.classList.toggle("hidden");
-        cont.appendChild(hijos);
+        contenedor.appendChild(hijos);
     }
 
-    if(nodo.link){
-        btn.onclick = () => location.href = nodo.link;
-    }
+    // CLICK (funciona para TODOS)
+    tarjeta.onclick = () => {
 
-    return cont;
+        // si tiene link → navega
+        if(nodo.link){
+            location.href = nodo.link;
+            return;
+        }
+
+        // si tiene hijos → despliega
+        if(hijos){
+            hijos.style.display = hijos.style.display === "none" ? "block" : "none";
+        }
+    };
+    return contenedor;
 }
 
-document.getElementById("tree").appendChild(crearNodo(data));
-
-// ================= SECCION =================
-document.getElementById("titulo").textContent = seccion.titulo;
-document.getElementById("descripcion").textContent = seccion.descripcion;
-
-const contenedor = document.getElementById("productos");
-
-seccion.productos.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "card bg-zinc-800 rounded-3xl overflow-hidden";
-
-    card.innerHTML = `
-        <img src="${p.img}" class="w-full h-56 object-cover">
-        <div class="p-4">
-            <h3 class="font-semibold">${p.nombre}</h3>
-            <p class="text-sm text-zinc-400">${p.specs}</p>
-            <span class="text-orange-400 font-bold block mt-2">$${p.precio.toLocaleString()}</span>
-        </div>
-    `;
-
-    card.onclick = () => abrirModal(p);
-    contenedor.appendChild(card);
-});
-
-// ================= MODAL =================
-function abrirModal(p){
-    const modal = document.getElementById("modal");
-    const contenido = document.getElementById("modalContenido");
-
-    contenido.innerHTML = `
-        <img src="${p.img}" class="w-full h-80 object-cover rounded-xl">
-        <div>
-            <h2 class="text-2xl font-bold mb-2">${p.nombre}</h2>
-            <p class="text-zinc-400 mb-4">${p.specs}</p>
-            <p class="mb-6">${p.desc}</p>
-            <span class="text-3xl text-orange-400 font-bold">$${p.precio.toLocaleString()}</span>
-            <button class="mt-6 w-full bg-orange-500 py-3 rounded-xl hover:bg-orange-600 transition">
-                Agregar al carrito 🛒
-            </button>
-        </div>
-    `;
-
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-}
-
-function cerrarModal(){
-    const modal = document.getElementById("modal");
-    modal.classList.add("hidden");
-}
-
+// render
+document.getElementById("tree").appendChild(crearNodo(data, true));
 lucide.createIcons();
