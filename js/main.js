@@ -104,3 +104,6 @@ function crearNodo(nodo, root = false) {
 // render
 document.getElementById("tree").appendChild(crearNodo(data, true));
 lucide.createIcons();
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("tree").appendChild(crearNodo(data, true));
+});
