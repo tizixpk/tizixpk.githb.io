@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mexx - Tu Sitio de Confianza</title>
+
+    <!-- Tailwind: framework de CSS que nos da clases listas para usar -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide: librería de íconos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: tipografías personalizadas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Nuestro CSS propio -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         HEADER — barra superior fija con logo y carrito
+    ============================================================ -->
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <div class="logo-icon">
+                <i data-lucide="monitor" style="width:20px;height:20px;color:white"></i>
+            </div>
+            <span class="logo-text">ME<span>XX</span></span>
+        </div>
+
+        <!-- Lado derecho: buscador + botón carrito -->
+        <div class="header-right">
+            <div class="header-search">
+                <i data-lucide="search" style="width:14px;height:14px"></i>
+                Buscar productos...
+            </div>
+
+            <button class="cart-btn" id="cartBtn">
+                <i data-lucide="shopping-cart" style="width:18px;height:18px"></i>
+                <!-- Badge con el número de productos en el carrito -->
+                <span class="cart-badge" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- ============================================================
+         HERO — banner principal con título y estadísticas
+    ============================================================ -->
+    <div class="hero">
+        <div class="hero-content">
+            <div>
+                <!-- Etiqueta pequeña arriba del título -->
+                <div class="hero-tag">
+                    <i data-lucide="zap" style="width:12px;height:12px"></i>
+                    Tienda Gamer & Tech
+                </div>
+
+                <h1>Tu próxima PC<br>empieza <span>acá.</span></h1>
+                <p>Componentes, periféricos y PCs armadas al mejor precio. Envíos a todo el país.</p>
+
+                <button class="hero-cta">
+                    <i data-lucide="cpu" style="width:16px;height:16px"></i>
+                    Armar mi PC
+                </button>
+
+                <!-- Estadísticas debajo del botón -->
+                <div class="hero-stats">
+                    <div>
+                        <div class="hero-stat-value">+2.000</div>
+                        <div class="hero-stat-label">Productos</div>
+                    </div>
+                    <div>
+                        <div class="hero-stat-value">+5.000</div>
+                        <div class="hero-stat-label">Clientes</div>
+                    </div>
+                    <div>
+                        <div class="hero-stat-value">24hs</div>
+                        <div class="hero-stat-label">Despacho</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+         LAYOUT PRINCIPAL — sidebar izquierda + contenido derecha
+    ============================================================ -->
+    <div class="main-layout">
+
+        <!-- ── SIDEBAR: menú de categorías ── -->
+        <aside class="sidebar">
+            <div class="sidebar-title">Categorías</div>
+
+            <!-- Botón raíz del menú (no clickeable) -->
+            <div class="tree-root">
+                <i data-lucide="gamepad-2" style="width:18px;height:18px"></i>
+                Menú Principal
+            </div>
+
+            <!-- Acá el JS inyecta las categorías dinámicamente -->
+            <div id="tree-menu"></div>
+        </aside>
+
+
+        <!-- ── CONTENIDO PRINCIPAL ── -->
+        <main>
+
+            <!-- ──────── LO MÁS VENDIDO ──────── -->
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-wrap">
+                        <i data-lucide="flame" style="width:16px;height:16px"></i>
+                    </div>
+                    Lo más vendido
+                </div>
+            </div>
+
+            <div class="product-grid">
+
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="monitor" style="width:48px;height:48px"></i>
+                    </div>
+                    <span class="product-badge badge-top">TOP 1</span>
+                    <div class="product-body">
+                        <div class="product-name">PC Gamer RTX 4060</div>
+                        <div class="product-desc">Intel i5-13400F · 16GB DDR5 · 1TB SSD NVMe</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$1.299.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="monitor" style="width:48px;height:48px"></i>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">Monitor 27" 144Hz Curvo</div>
+                        <div class="product-desc">VA · 1ms · HDMI + DisplayPort</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$449.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="keyboard" style="width:48px;height:48px"></i>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">Teclado Mecánico RGB</div>
+                        <div class="product-desc">Switches Red Outemu · 104 teclas · Retroiluminado</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$79.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="headphones" style="width:48px;height:48px"></i>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">Auriculares Gaming Wireless</div>
+                        <div class="product-desc">7.1 Surround · 50mm · 40h de batería</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$59.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /product-grid -->
+
+            <div class="section-divider"></div>
+
+            <!-- ──────── OFERTAS DEL MES ──────── -->
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-wrap">
+                        <i data-lucide="percent" style="width:16px;height:16px"></i>
+                    </div>
+                    Ofertas del mes
+                </div>
+                <a href="#" class="section-link">
+                    Ver todas
+                    <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+                </a>
+            </div>
+
+            <div class="product-grid">
+
+                <!-- Oferta 1 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="laptop" style="width:48px;height:48px"></i>
+                    </div>
+                    <span class="product-badge badge-sale">-25%</span>
+                    <div class="product-body">
+                        <div class="product-name">Notebook MSI Gaming GF63</div>
+                        <div class="product-desc">RTX 4060 · i7-13700H · 16GB · 512GB</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price-old">$1.199.999</span>
+                                <span class="product-price">$899.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oferta 2 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="cpu" style="width:48px;height:48px"></i>
+                    </div>
+                    <span class="product-badge badge-sale">-15%</span>
+                    <div class="product-body">
+                        <div class="product-name">Placa de Video RTX 4070 Ti</div>
+                        <div class="product-desc">12GB GDDR6X · DLSS 3 · Ray Tracing</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price-old">$949.999</span>
+                                <span class="product-price">$749.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oferta 3 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="memory-stick" style="width:48px;height:48px"></i>
+                    </div>
+                    <span class="product-badge badge-sale">-20%</span>
+                    <div class="product-body">
+                        <div class="product-name">Kit RAM 32GB DDR5 6000MHz</div>
+                        <div class="product-desc">2x16GB · CL36 · XMP / EXPO Ready</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price-old">$169.999</span>
+                                <span class="product-price">$129.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oferta 4 -->
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="hard-drive" style="width:48px;height:48px"></i>
+                    </div>
+                    <span class="product-badge badge-sale">-30%</span>
+                    <div class="product-body">
+                        <div class="product-name">SSD NVMe 2TB Kingston KC3000</div>
+                        <div class="product-desc">7.000 MB/s · PCIe 4.0 · M.2 2280</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price-old">$229.999</span>
+                                <span class="product-price">$149.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /product-grid -->
+
+        </main>
+    </div><!-- /main-layout -->
+
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer>
+        <p>© 2025 Mexx — Todos los derechos reservados ·
+            <span style="color: var(--orange)">mexx.com.ar</span>
+        </p>
+    </footer>
+
+
+    <!-- ============================================================
+         TOAST — notificación que aparece al agregar al carrito
+    ============================================================ -->
+    <div id="toast">
+        <i data-lucide="check-circle" style="width:16px;height:16px;color:#4ade80"></i>
+        Producto agregado al carrito
+    </div>
+
+
+    <!-- Nuestro JavaScript (al final del body para que el HTML ya esté cargado) -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>

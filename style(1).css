@@ -1,0 +1,659 @@
+/* ================================================================
+   MEXX — style.css
+   Acá van todos los estilos visuales del sitio.
+   Separado del HTML para mantener el código ordenado.
+================================================================ */
+
+
+/* ── VARIABLES GLOBALES ──────────────────────────────────────────
+   Con variables podemos cambiar colores desde un solo lugar.
+   Si mañana queremos cambiar el naranja, lo cambiamos acá
+   y se actualiza en todo el sitio automáticamente.
+------------------------------------------------------------------ */
+:root {
+    --orange:    #f97316;   /* color principal de la marca */
+    --orange-dim:#ea6a05;   /* naranja un poco más oscuro para hover */
+    --bg:        #0d0d0d;   /* fondo general de la página */
+    --surface:   #161616;   /* fondo de las cards */
+    --surface2:  #1e1e1e;   /* fondo de elementos secundarios */
+    --border:    #2a2a2a;   /* color de los bordes */
+    --text:      #f0f0f0;   /* color del texto principal */
+    --muted:     #888888;   /* color del texto secundario/gris */
+}
+
+
+/* ── RESET Y BASE ────────────────────────────────────────────────
+   Eliminamos márgenes y paddings que el navegador pone por defecto.
+------------------------------------------------------------------ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+}
+
+/* Usamos Rajdhani para títulos: da un look más tecnológico */
+h1, h2, h3, .logo-text {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+
+/* ── HEADER ──────────────────────────────────────────────────────
+   position: sticky hace que se quede fijo arriba al hacer scroll.
+   backdrop-filter: blur da el efecto de vidrio esmerilado.
+------------------------------------------------------------------ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;                          /* siempre por encima del resto */
+    background: rgba(13, 13, 13, 0.9);    /* fondo semitransparente */
+    backdrop-filter: blur(12px);           /* desenfoque de lo que hay detrás */
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 64px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--orange);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow crea el "resplandor" naranja */
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.logo-text span {
+    color: var(--orange); /* la segunda parte del logo en naranja */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 14px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    cursor: pointer;
+    /* transition anima el cambio de color suavemente */
+    transition: border-color 0.2s;
+}
+.header-search:hover {
+    border-color: var(--orange);
+    color: white;
+}
+
+.cart-btn {
+    position: relative;   /* necesario para posicionar el badge encima */
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+.cart-btn:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+}
+
+/* El número rojo/naranja sobre el ícono del carrito */
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--orange);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ── HERO BANNER ─────────────────────────────────────────────────
+   La sección grande de bienvenida.
+   overflow: hidden evita que el gradiente redondo se salga del div.
+------------------------------------------------------------------ */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, #111 0%, #1a0a00 50%, #111 100%);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    padding: 3.5rem 2rem;
+}
+
+/* Círculo de luz difusa en el fondo del hero */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+    pointer-events: none; /* no bloquea los clics */
+}
+
+.hero-content {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(249, 115, 22, 0.15);
+    border: 1px solid rgba(249, 115, 22, 0.4);
+    color: var(--orange);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    /* clamp: tamaño de fuente flexible entre 2rem y 3.5rem */
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.hero h1 span {
+    color: var(--orange);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    max-width: 420px;
+    line-height: 1.6;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.35);
+}
+.hero-cta:hover {
+    background: var(--orange-dim);
+    transform: translateY(-1px); /* sube 1px al pasar el mouse */
+    box-shadow: 0 6px 28px rgba(249, 115, 22, 0.45);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.hero-stat-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--orange);
+}
+
+.hero-stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* ── LAYOUT PRINCIPAL ────────────────────────────────────────────
+   CSS Grid para poner sidebar y contenido uno al lado del otro.
+   "260px 1fr" = sidebar de 260px fijo, contenido toma el resto.
+------------------------------------------------------------------ */
+.main-layout {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+
+/* ── SIDEBAR / MENÚ ──────────────────────────────────────────────
+   position: sticky + top hace que el menú se quede visible
+   mientras el usuario hace scroll por el contenido.
+------------------------------------------------------------------ */
+.sidebar {
+    position: sticky;
+    top: 80px;
+}
+
+.sidebar-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.75rem;
+}
+
+.tree-root {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 16px rgba(249, 115, 22, 0.3);
+}
+
+.tree-category {
+    margin-top: 6px;
+}
+
+.tree-category-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.18s;
+    user-select: none; /* evita que se seleccione el texto al hacer clic */
+}
+.tree-category-header:hover {
+    background: var(--surface);
+    border-color: var(--orange);
+    color: var(--orange);
+}
+.tree-category-header.open {
+    border-color: rgba(249, 115, 22, 0.5);
+    color: var(--orange);
+}
+
+.tree-category-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* La flecha que rota cuando se abre la categoría */
+.tree-chevron {
+    transition: transform 0.25s;
+    color: var(--muted);
+}
+.tree-category-header.open .tree-chevron {
+    transform: rotate(90deg); /* gira 90 grados cuando está abierto */
+    color: var(--orange);
+}
+
+/* max-height animado: truco para animar "height: auto" con CSS */
+.tree-children {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+.tree-children.open {
+    max-height: 300px;
+}
+
+.tree-children-inner {
+    padding: 6px 0 6px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-left: 2px solid rgba(249, 115, 22, 0.3);
+    margin-left: 18px;
+    margin-top: 4px;
+}
+
+.tree-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+}
+.tree-link::before {
+    content: '—';
+    font-size: 0.7rem;
+    opacity: 0.5;
+}
+.tree-link:hover {
+    background: rgba(249, 115, 22, 0.1);
+    color: var(--orange);
+}
+
+
+/* ── ENCABEZADOS DE SECCIÓN ──────────────────────────────────────
+------------------------------------------------------------------ */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.icon-wrap {
+    width: 36px;
+    height: 36px;
+    background: rgba(249, 115, 22, 0.15);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+}
+
+.section-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--orange);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: gap 0.2s; /* la flecha se aleja al hacer hover */
+    text-decoration: none;
+}
+.section-link:hover {
+    gap: 10px;
+}
+
+
+/* ── GRILLA DE PRODUCTOS ─────────────────────────────────────────
+   auto-fill + minmax: crea tantas columnas como entren,
+   cada una de mínimo 200px. Se adapta solo al ancho disponible.
+------------------------------------------------------------------ */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+
+/* ── CARD DE PRODUCTO ────────────────────────────────────────────
+------------------------------------------------------------------ */
+.product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.product-card:hover {
+    border-color: rgba(249, 115, 22, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Placeholder mientras no hay imagen real */
+.product-img-placeholder {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+.badge-top {
+    background: var(--orange);
+    color: white;
+}
+
+.badge-sale {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    color: #f87171;
+    left: auto;
+    right: 12px; /* las ofertas van a la derecha */
+}
+
+.product-body {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+.product-desc {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: auto; /* empuja el precio/botón al fondo de la card */
+}
+
+.product-pricing {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-price-old {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-decoration: line-through;
+    line-height: 1;
+}
+
+.product-price {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+}
+
+.add-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: white;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.add-btn:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    transform: scale(1.05);
+}
+
+
+/* ── SEPARADOR ───────────────────────────────────────────────────
+------------------------------------------------------------------ */
+.section-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 2.5rem 0;
+}
+
+
+/* ── TOAST ───────────────────────────────────────────────────────
+   Notificación que aparece abajo a la derecha.
+   Empieza oculta (translateY(80px) + opacity 0)
+   y cuando el JS le agrega la clase .show aparece.
+------------------------------------------------------------------ */
+#toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--surface2);
+    border: 1px solid rgba(249, 115, 22, 0.4);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 999;
+    /* Estado inicial: invisible y desplazado */
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+}
+#toast.show {
+    /* Estado visible: en su lugar y opaco */
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+/* ── FOOTER ──────────────────────────────────────────────────────
+------------------------------------------------------------------ */
+footer {
+    margin-top: 4rem;
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────
+   En pantallas chicas (menos de 768px) el grid pasa a
+   una sola columna: sidebar arriba, contenido abajo.
+------------------------------------------------------------------ */
+@media (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    .sidebar {
+        position: static; /* en móvil no queda pegado */
+    }
+    .hero-stats {
+        gap: 1.5rem;
+    }
+}
