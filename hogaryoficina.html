@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hogar Y Oficina - Mexx</title>
+<title>Mexx - Categoria</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -16,30 +16,126 @@
 
 </head>
 
-<body class="bg-[#121212] text-white font-sans">
+<body class="bg-[#121212] text-white font-sans p-6">
 
-<!-- NAV -->
-<div class="bg-zinc-900 p-5 flex justify-between items-center shadow-lg sticky top-0 z-50">
-    <h1 class="text-2xl font-bold text-orange-500" id="titulo">Categoria</h1>
-    <a href="index.html" class="text-orange-400 hover:text-orange-300 flex items-center gap-2">
-        <i data-lucide="arrow-left"></i> Volver
-    </a>
-</div>
+<!-- TITULO -->
+<h1 class="text-3xl font-bold text-orange-500 mb-6">
+    Mexx - Tienda
+</h1>
+
+<!-- MENU (IGUAL AL HOME) -->
+<div id="tree" class="mb-10"></div>
 
 <!-- CONTENIDO -->
-<div class="max-w-7xl mx-auto p-10">
+<div class="max-w-7xl mx-auto">
 
-    <p class="text-zinc-400 mb-10" id="descripcion"></p>
+    <h2 id="titulo" class="text-3xl font-bold text-orange-400 mb-2"></h2>
+    <p id="descripcion" class="text-zinc-400 mb-8"></p>
 
-    <!-- GRID -->
     <div id="productos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
 
 </div>
 
 <script>
 
-// ================= CONFIGURACIÓN =================
-// 🔥 SOLO CAMBIÁS ESTO Y YA TENÉS OTRA PÁGINA
+// ================= MENU =================
+const data = {
+    name: "Menu",
+    icon: "gamepad-2",
+    children: [
+        {
+            name: "PCs Armadas",
+            icon: "monitor",
+            children: [
+                { name: "Hogar y Oficina (Estas Aqui)", link: "hogar-oficina.html" },
+                { name: "Entretenimiento", link: "#" },
+                { name: "Gamers", link: "#" }
+            ]
+        },
+        {
+            name: "Componentes",
+            icon: "cpu",
+            children: [
+                { name: "Procesadores", link: "#" },
+                { name: "RAM", link: "#" },
+                { name: "Placas de Video", link: "#" },
+                { name: "Almacenamiento", link: "#" }
+            ]
+        },
+        {
+            name: "Periféricos",
+            icon: "mouse",
+            children: [
+                { name: "Monitores", link: "#" },
+                { name: "Teclados", link: "#" },
+                { name: "Mouses", link: "#" },
+                { name: "Auriculares", link: "#" }
+            ]
+        },
+        {
+            name: "Notebooks",
+            icon: "laptop",
+            children: [
+                { name: "Notebooks", link: "#" },
+                { name: "Mini PC", link: "#" }
+            ]
+        }
+    ]
+};
+
+function crearNodo(nodo, root = false) {
+
+    const contenedor = document.createElement("div");
+    contenedor.className = "ml-4 mt-2";
+
+    const tarjeta = document.createElement("div");
+    tarjeta.className = "flex items-center gap-2 bg-zinc-800 px-3 py-2 rounded cursor-pointer hover:bg-orange-500 transition";
+
+    if(root){
+        tarjeta.className = "flex items-center gap-2 bg-orange-600 px-5 py-3 rounded font-bold";
+    }
+
+    if(nodo.icon){
+        const icon = document.createElement("i");
+        icon.setAttribute("data-lucide", nodo.icon);
+        icon.className = "w-5 h-5";
+        tarjeta.appendChild(icon);
+    }
+
+    const texto = document.createElement("span");
+    texto.textContent = nodo.name;
+    tarjeta.appendChild(texto);
+
+    contenedor.appendChild(tarjeta);
+
+    if(nodo.children){
+        const hijos = document.createElement("div");
+        hijos.className = "ml-4 border-l border-orange-500 pl-3";
+        hijos.style.display = "none";
+
+        nodo.children.forEach(h => hijos.appendChild(crearNodo(h)));
+
+        tarjeta.onclick = () => {
+            hijos.style.display = hijos.style.display === "none" ? "block" : "none";
+        };
+
+        contenedor.appendChild(hijos);
+    }
+
+    // 🔥 CLICK CON LINK (FIX BUG)
+    if(nodo.link){
+        tarjeta.onclick = (e) => {
+            e.stopPropagation();
+            window.location.href = nodo.link;
+        };
+    }
+
+    return contenedor;
+}
+
+document.getElementById("tree").appendChild(crearNodo(data, true));
+
+// ================= CONFIG PRODUCTOS =================
 
 const config = {
     titulo: "PCs Hogar y Oficina",
@@ -64,28 +160,16 @@ const config = {
             img: "https://images.unsplash.com/photo-1585076641399-5c06d1b3365f"
         },
         {
-            nombre: "PC Compacta Mini",
+            nombre: "Mini PC Compacta",
             specs: "Intel N100 • 8GB • SSD 256GB",
             precio: 249999,
             img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db"
-        },
-        {
-            nombre: "PC Silenciosa Office",
-            specs: "Ryzen 3 • 8GB • SSD 480GB",
-            precio: 319999,
-            img: "https://images.unsplash.com/photo-1591488320449-011701bb6704"
         },
         {
             nombre: "PC Multitarea",
             specs: "i5 12th • 16GB • SSD 512GB",
             precio: 529999,
             img: "https://images.unsplash.com/photo-1547082299-de196ea013d6"
-        },
-        {
-            nombre: "PC Estudio",
-            specs: "Ryzen 5 • 8GB • SSD 240GB",
-            precio: 379999,
-            img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8"
         },
         {
             nombre: "PC Premium Office",
@@ -96,7 +180,7 @@ const config = {
     ]
 };
 
-// ================= RENDER =================
+// ================= RENDER PRODUCTOS =================
 
 document.getElementById("titulo").textContent = config.titulo;
 document.getElementById("descripcion").textContent = config.descripcion;
@@ -106,7 +190,7 @@ const contenedor = document.getElementById("productos");
 config.productos.forEach(p => {
 
     const card = document.createElement("div");
-    card.className = "card bg-zinc-800 rounded-3xl overflow-hidden transition duration-300 cursor-pointer";
+    card.className = "card bg-zinc-800 rounded-3xl overflow-hidden transition duration-300";
 
     card.innerHTML = `
         <div class="overflow-hidden">
@@ -134,7 +218,7 @@ config.productos.forEach(p => {
 });
 
 function agregar(){
-    alert("Producto agregado al carrito 🛒");
+    alert("Producto agregado 🛒");
 }
 
 lucide.createIcons();
