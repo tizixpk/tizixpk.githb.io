@@ -3,94 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PCs Hogar y Oficina - Mexx</title>
+<title>Hogar Y Oficina - Mexx</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+</style>
 
 </head>
 
 <body class="bg-[#121212] text-white font-sans">
 
 <!-- NAV -->
-<div class="bg-zinc-900 p-5 flex justify-between items-center shadow-lg">
-    <h1 class="text-2xl font-bold text-orange-500">Mexx</h1>
+<div class="bg-zinc-900 p-5 flex justify-between items-center shadow-lg sticky top-0 z-50">
+    <h1 class="text-2xl font-bold text-orange-500" id="titulo">Categoria</h1>
     <a href="index.html" class="text-orange-400 hover:text-orange-300 flex items-center gap-2">
         <i data-lucide="arrow-left"></i> Volver
     </a>
 </div>
 
-<!-- TÍTULO -->
+<!-- CONTENIDO -->
 <div class="max-w-7xl mx-auto p-10">
-    <h2 class="text-4xl font-bold text-orange-500 mb-4">
-        PCs Hogar y Oficina
-    </h2>
-    <p class="text-zinc-400 mb-10">
-        Equipos ideales para estudio, trabajo y uso diario. Rendimiento fluido y silencioso.
-    </p>
+
+    <p class="text-zinc-400 mb-10" id="descripcion"></p>
 
     <!-- GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div id="productos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
 
-        <!-- PC 1 -->
-        <div class="bg-zinc-800 rounded-3xl overflow-hidden hover:-translate-y-2 transition">
-            <img src="pc-oficina1.png" class="w-full h-60 object-cover">
-            <div class="p-6">
-                <h3 class="text-xl font-semibold">PC Oficina Básica</h3>
-                <p class="text-zinc-400 text-sm mt-2 mb-4">
-                    Intel i3 • 8GB RAM • SSD 240GB
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-2xl text-orange-400 font-bold">$299.999</span>
-                    <button onclick="alert('Agregado al carrito')" 
-                        class="bg-orange-500 px-5 py-2 rounded-xl hover:bg-orange-600 flex items-center gap-2">
-                        <i data-lucide="shopping-cart"></i> Agregar
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- PC 2 -->
-        <div class="bg-zinc-800 rounded-3xl overflow-hidden hover:-translate-y-2 transition">
-            <img src="pc-oficina2.png" class="w-full h-60 object-cover">
-            <div class="p-6">
-                <h3 class="text-xl font-semibold">PC Oficina Plus</h3>
-                <p class="text-zinc-400 text-sm mt-2 mb-4">
-                    Ryzen 5 • 16GB RAM • SSD 480GB
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-2xl text-orange-400 font-bold">$449.999</span>
-                    <button onclick="alert('Agregado al carrito')" 
-                        class="bg-orange-500 px-5 py-2 rounded-xl hover:bg-orange-600 flex items-center gap-2">
-                        <i data-lucide="shopping-cart"></i> Agregar
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- PC 3 -->
-        <div class="bg-zinc-800 rounded-3xl overflow-hidden hover:-translate-y-2 transition">
-            <img src="pc-oficina3.png" class="w-full h-60 object-cover">
-            <div class="p-6">
-                <h3 class="text-xl font-semibold">PC Oficina Pro</h3>
-                <p class="text-zinc-400 text-sm mt-2 mb-4">
-                    Intel i5 • 16GB RAM • SSD 1TB
-                </p>
-                <div class="flex justify-between items-center">
-                    <span class="text-2xl text-orange-400 font-bold">$599.999</span>
-                    <button onclick="alert('Agregado al carrito')" 
-                        class="bg-orange-500 px-5 py-2 rounded-xl hover:bg-orange-600 flex items-center gap-2">
-                        <i data-lucide="shopping-cart"></i> Agregar
-                    </button>
-                </div>
-            </div>
-        </div>
-
-    </div>
 </div>
 
 <script>
+
+// ================= CONFIGURACIÓN =================
+// 🔥 SOLO CAMBIÁS ESTO Y YA TENÉS OTRA PÁGINA
+
+const config = {
+    titulo: "PCs Hogar y Oficina",
+    descripcion: "Equipos ideales para estudio, trabajo y uso diario.",
+    productos: [
+        {
+            nombre: "PC Oficina Básica",
+            specs: "Intel i3 • 8GB • SSD 240GB",
+            precio: 299999,
+            img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7"
+        },
+        {
+            nombre: "PC Oficina Plus",
+            specs: "Ryzen 5 • 16GB • SSD 480GB",
+            precio: 449999,
+            img: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5"
+        },
+        {
+            nombre: "PC Oficina Pro",
+            specs: "Intel i5 • 16GB • SSD 1TB",
+            precio: 599999,
+            img: "https://images.unsplash.com/photo-1585076641399-5c06d1b3365f"
+        },
+        {
+            nombre: "PC Compacta Mini",
+            specs: "Intel N100 • 8GB • SSD 256GB",
+            precio: 249999,
+            img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db"
+        },
+        {
+            nombre: "PC Silenciosa Office",
+            specs: "Ryzen 3 • 8GB • SSD 480GB",
+            precio: 319999,
+            img: "https://images.unsplash.com/photo-1591488320449-011701bb6704"
+        },
+        {
+            nombre: "PC Multitarea",
+            specs: "i5 12th • 16GB • SSD 512GB",
+            precio: 529999,
+            img: "https://images.unsplash.com/photo-1547082299-de196ea013d6"
+        },
+        {
+            nombre: "PC Estudio",
+            specs: "Ryzen 5 • 8GB • SSD 240GB",
+            precio: 379999,
+            img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8"
+        },
+        {
+            nombre: "PC Premium Office",
+            specs: "i7 • 32GB • SSD 1TB",
+            precio: 799999,
+            img: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04"
+        }
+    ]
+};
+
+// ================= RENDER =================
+
+document.getElementById("titulo").textContent = config.titulo;
+document.getElementById("descripcion").textContent = config.descripcion;
+
+const contenedor = document.getElementById("productos");
+
+config.productos.forEach(p => {
+
+    const card = document.createElement("div");
+    card.className = "card bg-zinc-800 rounded-3xl overflow-hidden transition duration-300 cursor-pointer";
+
+    card.innerHTML = `
+        <div class="overflow-hidden">
+            <img src="${p.img}" class="w-full h-56 object-cover hover:scale-110 transition duration-500">
+        </div>
+
+        <div class="p-5">
+            <h3 class="text-lg font-semibold mb-1">${p.nombre}</h3>
+            <p class="text-zinc-400 text-sm mb-4">${p.specs}</p>
+
+            <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-orange-400">
+                    $${p.precio.toLocaleString()}
+                </span>
+
+                <button onclick="agregar()" 
+                    class="bg-orange-500 px-4 py-2 rounded-xl hover:bg-orange-600 flex items-center gap-2 active:scale-90 transition">
+                    <i data-lucide="shopping-cart"></i>
+                </button>
+            </div>
+        </div>
+    `;
+
+    contenedor.appendChild(card);
+});
+
+function agregar(){
+    alert("Producto agregado al carrito 🛒");
+}
+
 lucide.createIcons();
+
 </script>
 
 </body>
