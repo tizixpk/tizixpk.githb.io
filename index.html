@@ -294,46 +294,32 @@ function crearNodo(nodo, root = false) {
     // hijos
     let hijos = null;
 
-// hijos
-if(nodo.children){
-    hijos = document.createElement("div");
-    hijos.className = "ml-6 border-l border-orange-500 pl-4 animate-fade-in";
-    hijos.style.display = "none";
+    if(nodo.children){
+        hijos = document.createElement("div");
+        hijos.className = "ml-6 border-l border-orange-500 pl-4 animate-fade-in";
+        hijos.style.display = "none";
 
-    nodo.children.forEach(h => {
-        hijos.appendChild(crearNodo(h));
-    });
+        nodo.children.forEach(h => {
+            hijos.appendChild(crearNodo(h));
+        });
 
-    contenedor.appendChild(hijos);
-}
-
-// 👉 CLICK (ahora funciona para TODOS)
-tarjeta.onclick = () => {
-
-    // si tiene link → navega
-    if(nodo.link){
-        location.href = nodo.link;
-        return;
-    }
-
-    // si tiene hijos → despliega
-    if(hijos){
-        hijos.style.display = hijos.style.display === "none" ? "block" : "none";
-    }
-};
-        
-    tarjeta.onclick = () => {
-    // 👉 si tiene link (los hijos), navega
-    if(nodo.link){
-        location.href = nodo.link;
-        return;
-    }
-
-    // 👉 si tiene hijos, despliega
-    hijos.style.display = hijos.style.display === "none" ? "block" : "none";
-};
         contenedor.appendChild(hijos);
     }
+
+    // CLICK (funciona para TODOS)
+    tarjeta.onclick = () => {
+
+        // si tiene link → navega
+        if(nodo.link){
+            location.href = nodo.link;
+            return;
+        }
+
+        // si tiene hijos → despliega
+        if(hijos){
+            hijos.style.display = hijos.style.display === "none" ? "block" : "none";
+        }
+    };
 
     return contenedor;
 }
