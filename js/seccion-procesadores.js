@@ -1,6 +1,5 @@
 /* ================================================================
-   MEXX — seccion.js
-   Lógica específica de las páginas de sección:
+   Mamani`s — seccion.js
    - Ordenar productos (precio, nombre)
 ================================================================ */
 
