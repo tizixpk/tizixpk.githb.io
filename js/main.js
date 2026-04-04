@@ -14,9 +14,9 @@ const menuData = [
         name: "PCs Armadas",
         icon: "monitor",
         children: [
-            { name: "Hogar y Oficina",  link: "hogar-oficina.html" },
-            { name: "Entretenimiento",  link: "entretenimiento.html" },
-            { name: "Gamers",           link: "gamers.html" }
+            { name: "Hogar y Oficina",  link: "seccion-hogar-y-oficina.html" },
+            { name: "Entretenimiento",  link: "seccion-entretenimiento.html" },
+            { name: "Gamers",           link: "seccion-gamers.html" }
         ]
     },
     {
