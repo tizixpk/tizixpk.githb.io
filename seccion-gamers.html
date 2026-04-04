@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogar Y Oficina — Mamani's</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/seccion-procesadores.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo" style="text-decoration:none">
+            <div class="logo-icon">
+                <i data-lucide="monitor" style="width:20px;height:20px;color:white"></i>
+            </div>
+            <span class="logo-text">Mama<span>ni</span></span>
+        </a>
+        <div class="header-right">
+            <div class="header-search">
+                <i data-lucide="search" style="width:14px;height:14px"></i>
+                Buscar productos...
+            </div>
+            <button class="cart-btn" id="cartBtn">
+                <i data-lucide="shopping-cart" style="width:18px;height:18px"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-inner">
+            <a href="index.html" class="breadcrumb-link">
+                <i data-lucide="home" style="width:13px;height:13px"></i>
+                Inicio
+            </a>
+            <i data-lucide="chevron-right" style="width:13px;height:13px;color:#444"></i>
+            <a href="#" class="breadcrumb-link">PC`s Armadas</a>
+            <i data-lucide="chevron-right" style="width:13px;height:13px;color:#444"></i>
+            <span class="breadcrumb-current">Gamers</span>
+        </div>
+    </div>
+
+    <div class="main-layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-title">Categorías</div>
+            <div class="tree-root">
+                <i data-lucide="gamepad-2" style="width:18px;height:18px"></i>
+                Menú Principal
+            </div>
+            <div id="tree-menu"></div>
+        </aside>
+
+        <main>
+
+            <div class="page-header">
+                <div>
+                    <div class="page-header-tag">
+                        <i data-lucide="cpu" style="width:12px;height:12px"></i>
+                        PC`s Armadas
+                    </div>
+                    <h1 class="page-title">Gamers</h1>
+                    <p class="page-desc">Los mejores procesadores Intel y AMD para tu build.</p>
+                </div>
+                <div class="filter-bar">
+                    <span class="filter-label">Ordenar:</span>
+                    <select class="filter-select" id="filtroOrden">
+                        <option value="default">Destacados</option>
+                        <option value="precio-asc">Menor precio</option>
+                        <option value="precio-desc">Mayor precio</option>
+                        <option value="nombre">Nombre A-Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+
+                <!-- PRODUCTO 1 -->
+                <div class="product-card" data-nombre="Intel Core i5-13400F" data-precio="149999">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="cpu" style="width:48px;height:48px"></i>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">Intel Core i5-13400F</div>
+                        <div class="product-desc">10 núcleos · 4.6GHz Boost · Socket LGA1700</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$149.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 2 -->
+                <div class="product-card" data-nombre="Intel Core i7-13700K" data-precio="289999">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="cpu" style="width:48px;height:48px"></i>
+                    </div>
+                    <span class="product-badge badge-top">TOP</span>
+                    <div class="product-body">
+                        <div class="product-name">Intel Core i7-13700K</div>
+                        <div class="product-desc">16 núcleos · 5.4GHz Boost · Socket LGA1700</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$289.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 3 -->
+                <div class="product-card" data-nombre="AMD Ryzen 5 7600X" data-precio="169999">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="cpu" style="width:48px;height:48px"></i>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">AMD Ryzen 5 7600X</div>
+                        <div class="product-desc">6 núcleos · 5.3GHz Boost · Socket AM5</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price-old">$199.999</span>
+                                <span class="product-price">$169.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 4 -->
+                <div class="product-card" data-nombre="AMD Ryzen 9 7950X" data-precio="589999">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="cpu" style="width:48px;height:48px"></i>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">AMD Ryzen 9 7950X</div>
+                        <div class="product-desc">16 núcleos · 5.7GHz Boost · Socket AM5</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$589.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 5 -->
+                <div class="product-card" data-nombre="Intel Core i3-13100" data-precio="89999">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="cpu" style="width:48px;height:48px"></i>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">Intel Core i3-13100</div>
+                        <div class="product-desc">4 núcleos · 4.5GHz Boost · Socket LGA1700</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$89.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 6 -->
+                <div class="product-card" data-nombre="AMD Ryzen 7 7700" data-precio="249999">
+                    <div class="product-img-placeholder">
+                        <i data-lucide="cpu" style="width:48px;height:48px"></i>
+                    </div>
+                    <span class="product-badge badge-sale">-10%</span>
+                    <div class="product-body">
+                        <div class="product-name">AMD Ryzen 7 7700</div>
+                        <div class="product-desc">8 núcleos · 5.3GHz Boost · Socket AM5</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price-old">$279.999</span>
+                                <span class="product-price">$249.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /product-grid -->
+
+            <div id="sinResultados" style="display:none" class="no-results">
+                <i data-lucide="search-x" style="width:40px;height:40px;color:#444"></i>
+                <p>No se encontraron productos.</p>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 Mamani's — Todos los derechos reservados ·
+            <span style="color: var(--orange)">mexx.com.ar</span>
+        </p>
+    </footer>
+
+    <div id="toast">
+        <i data-lucide="check-circle" style="width:16px;height:16px;color:#4ade80"></i>
+        Producto agregado al carrito
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/seccion-procesadores.js"></script>
+</body>
+</html>
