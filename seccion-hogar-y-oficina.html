@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hogar Y Oficina — Mamani`s</title>
+    <title>Hogar Y Oficina — Mamani's</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/seccion-procesadores.css">
 </head>
 <body>
+
     <header>
         <a href="index.html" class="logo" style="text-decoration:none">
             <div class="logo-icon">
@@ -31,10 +32,6 @@
         </div>
     </header>
 
-
-    <!-- ============================================================
-         BREADCRUMB — miga de pan para saber dónde estás
-    ============================================================ -->
     <div class="breadcrumb-bar">
         <div class="breadcrumb-inner">
             <a href="index.html" class="breadcrumb-link">
@@ -42,21 +39,14 @@
                 Inicio
             </a>
             <i data-lucide="chevron-right" style="width:13px;height:13px;color:#444"></i>
-            <!-- CAMBIÁ ESTO: categoría padre -->
             <a href="#" class="breadcrumb-link">PC`s Armadas</a>
             <i data-lucide="chevron-right" style="width:13px;height:13px;color:#444"></i>
-            <!-- CAMBIÁ ESTO: nombre de la sección actual -->
             <span class="breadcrumb-current">Hogar Y Oficina</span>
         </div>
     </div>
 
-
-    <!-- ============================================================
-         LAYOUT PRINCIPAL
-    ============================================================ -->
     <div class="main-layout">
 
-        <!-- ── SIDEBAR ── -->
         <aside class="sidebar">
             <div class="sidebar-title">Categorías</div>
             <div class="tree-root">
@@ -66,26 +56,17 @@
             <div id="tree-menu"></div>
         </aside>
 
-
-        <!-- ── CONTENIDO ── -->
         <main>
 
-            <!-- Encabezado de la sección -->
             <div class="page-header">
                 <div>
-                    <!-- CAMBIÁ ESTO: ícono y nombre de la sección -->
                     <div class="page-header-tag">
                         <i data-lucide="cpu" style="width:12px;height:12px"></i>
-                        <!-- CAMBIÁ ESTO: categoría padre -->
                         PC`s Armadas
                     </div>
-                    <!-- CAMBIÁ ESTO: título principal -->
                     <h1 class="page-title">Hogar Y Oficina</h1>
-                    <!-- CAMBIÁ ESTO: descripción breve -->
                     <p class="page-desc">Los mejores procesadores Intel y AMD para tu build.</p>
                 </div>
-
-                <!-- Filtros / orden -->
                 <div class="filter-bar">
                     <span class="filter-label">Ordenar:</span>
                     <select class="filter-select" id="filtroOrden">
@@ -97,16 +78,9 @@
                 </div>
             </div>
 
-
-            <!-- ── GRILLA DE PRODUCTOS ──
-                 Cada .product-card es un producto.
-                 Para agregar más, copiá un bloque entero.
-                 Para cambiar el nombre/precio, editá adentro.
-            ──────────────────────────────────────────────── -->
             <div class="product-grid" id="productGrid">
 
-                
-                 <!-- PRODUCTO 1 -->
+                <!-- PRODUCTO 1 -->
                 <div class="product-card" data-nombre="Intel Core i5-13400F" data-precio="149999">
                     <div class="product-img-placeholder">
                         <i data-lucide="cpu" style="width:48px;height:48px"></i>
@@ -225,8 +199,7 @@
                 </div>
 
             </div><!-- /product-grid -->
-            
-            <!-- Mensaje cuando no hay resultados (oculto por defecto) -->
+
             <div id="sinResultados" style="display:none" class="no-results">
                 <i data-lucide="search-x" style="width:40px;height:40px;color:#444"></i>
                 <p>No se encontraron productos.</p>
@@ -235,15 +208,12 @@
         </main>
     </div>
 
-
-    <!-- FOOTER -->
     <footer>
-        <p>© 2026 Mamani`s — Todos los derechos reservados ·
+        <p>© 2026 Mamani's — Todos los derechos reservados ·
             <span style="color: var(--orange)">mexx.com.ar</span>
         </p>
     </footer>
 
-    <!-- TOAST -->
     <div id="toast">
         <i data-lucide="check-circle" style="width:16px;height:16px;color:#4ade80"></i>
         Producto agregado al carrito
