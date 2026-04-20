@@ -24,7 +24,7 @@ const menuData = [
         icon: "cpu",
         children: [
             { name: "Procesadores",     link: "seccion-procesadores.html" },
-            { name: "RAM",              link: "ram.html" },
+            { name: "RAM",              link: "seccion-ram.html" },
             { name: "Placas de Video",  link: "placas-de-video.html" },
             { name: "Almacenamiento",   link: "almacenamiento,html" }
         ]
