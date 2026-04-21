@@ -26,25 +26,25 @@ const menuData = [
             { name: "Procesadores",     link: "seccion-procesadores.html" },
             { name: "RAM",              link: "seccion-ram.html" },
             { name: "Placas de Video",  link: "seccion-placas-de-video.html" },
-            { name: "Almacenamiento",   link: "almacenamiento,html" }
+            { name: "Almacenamiento",   link: "seccion-almacenamiento.html" }
         ]
     },
     {
         name: "Periféricos",
         icon: "mouse",
         children: [
-            { name: "Monitores",        link: "monitores.html" },
-            { name: "Teclados",         link: "teclados.html" },
-            { name: "Mouses",           link: "mouses.html" },
-            { name: "Auriculares",      link: "auriculares.html" }
+            { name: "Monitores",        link: "seccion-monitores.html" },
+            { name: "Teclados",         link: "seccion-teclados.html" },
+            { name: "Mouses",           link: "seccion-mouse.html" },
+            { name: "Auriculares",      link: "seccion-auriculares.html" }
         ]
     },
     {
         name: "Notebooks",
         icon: "laptop",
         children: [
-            { name: "Notebooks",        link: "notebooks.html" },
-            { name: "Mini PC",          link: "mini-pcs.html" }
+            { name: "Notebooks",        link: "seccion-notebooks.html" },
+            { name: "Mini PC",          link: "seccion-mini-pcs.html" }
         ]
     }
 ];
