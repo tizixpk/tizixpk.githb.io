@@ -15,7 +15,6 @@ const menuData = [
         icon: "monitor",
         children: [
             { name: "Hogar y Oficina",  link: "seccion-hogar-y-oficina.html" },
-            { name: "Entretenimiento",  link: "seccion-entretenimiento.html" },
             { name: "Gamers",           link: "seccion-gamers.html" }
         ]
     },
@@ -43,8 +42,7 @@ const menuData = [
         name: "Notebooks",
         icon: "laptop",
         children: [
-            { name: "Notebooks",        link: "seccion-notebooks.html" },
-            { name: "Mini PC",          link: "seccion-mini-pcs.html" }
+            { name: "Notebooks",        link: "seccion-notebooks.html" }
         ]
     }
 ];
