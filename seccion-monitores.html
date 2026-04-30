@@ -1,1 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auriculares — Mamani's</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/seccion-procesadores.css">
+</head>
+<body>
 
+    <header>
+        <a href="index.html" class="logo" style="text-decoration:none">
+            <div class="logo-icon">
+                <i data-lucide="monitor" style="width:20px;height:20px;color:white"></i>
+            </div>
+            <span class="logo-text">Mama<span>ni</span></span>
+        </a>
+        <div class="header-right">
+            <div class="header-search">
+                <i data-lucide="search" style="width:14px;height:14px"></i>
+                Buscar productos...
+            </div>
+            <button class="cart-btn" id="cartBtn">
+                <i data-lucide="shopping-cart" style="width:18px;height:18px"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-inner">
+            <a href="index.html" class="breadcrumb-link">
+                <i data-lucide="home" style="width:13px;height:13px"></i>
+                Inicio
+            </a>
+            <i data-lucide="chevron-right" style="width:13px;height:13px;color:#444"></i>
+            <a href="#" class="breadcrumb-link">Perifericos</a>
+            <i data-lucide="chevron-right" style="width:13px;height:13px;color:#444"></i>
+            <span class="breadcrumb-current">Monitores</span>
+        </div>
+    </div>
+
+    <div class="main-layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-title">Categorías</div>
+            <div class="tree-root">
+                <i data-lucide="gamepad-2" style="width:18px;height:18px"></i>
+                Menú Principal
+            </div>
+            <div id="tree-menu"></div>
+        </aside>
+
+        <main>
+
+            <div class="page-header">
+                <div>
+                    <div class="page-header-tag">
+                        <i data-lucide="cpu" style="width:12px;height:12px"></i>
+                        Perifericos
+                    </div>
+                    <h1 class="page-title">Monitores</h1>
+                    <p class="page-desc">Los mejores Monitores</p>
+                </div>
+                <div class="filter-bar">
+                    <span class="filter-label">Ordenar:</span>
+                    <select class="filter-select" id="filtroOrden">
+                        <option value="default">Destacados</option>
+                        <option value="precio-asc">Menor precio</option>
+                        <option value="precio-desc">Mayor precio</option>
+                        <option value="nombre">Nombre A-Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+
+                <!-- PRODUCTO 1 -->
+                <div class="product-card" data-nombre="Intel Core i5-13400F" data-precio="149999">
+                    <div class="product-img-placeholder">
+                         <img src="https://mexx-img-2019.s3.amazonaws.com/Monitor-Led-22-LG-Full-Hd-75Hz-5Ms-22MP410-B_42935_1.jpeg" alt=""   style="width:100%; height:180px; object-fit:cover;">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">Monitor Gamer 22" LG Full Hd 75Hz 5Ms 22MP410-B</div>
+                        <div class="product-desc">buenos herts</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$159.619</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 2 -->
+                <div class="product-card" data-nombre="Intel Core i7-13700K" data-precio="289999">
+                    <div class="product-img-placeholder">
+                        <img src="https://mexx-img-2019.s3.amazonaws.com/48989_5.jpeg?v442" alt=""     style="width:100%; height:180px; object-fit:cover;">
+                    </div>
+                    <span class="product-badge badge-top">TOP</span>
+                    <div class="product-body">
+                        <div class="product-name">Monitor Gamer 20" X-Micro Hdmi Vga 75Hz 5Ms X20KN</div>
+                        <div class="product-desc">para gamers</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$76.239</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 3 -->
+                <div class="product-card" data-nombre="AMD Ryzen 5 7600X" data-precio="169999">
+                    <div class="product-img-placeholder">
+                      <img src="https://mexx-img-2019.s3.amazonaws.com/48990_6.jpeg?v735" alt=""      style="width:100%; height:180px; object-fit:cover;">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">Monitor Gamer 22" X-Micro Hdmi Vga 75Hz 5Ms X22KN</div>
+                        <div class="product-desc">buen tamaño</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price-old">$102.999</span>
+                                <span class="product-price">100.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 4 -->
+                <div class="product-card" data-nombre="AMD Ryzen 9 7950X" data-precio="589999">
+                    <div class="product-img-placeholder">
+                         <img src="https://mexx-img-2019.s3.amazonaws.com/Auricular-Chat-Logitech-H390-Usb-Rosa_45263_1.jpeg" alt=""     style="width:100%; height:180px; object-fit:cover;">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">Monitor Gamer 22" Dahua Full Hd 100Hz 5Ms DHI-LM22-A200J</div>
+                        <div class="product-desc">dinamico buenos colores</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$120.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 5 -->
+                <div class="product-card" data-nombre="Intel Core i3-13100" data-precio="89999">
+                    <div class="product-img-placeholder">
+                       <img src="https://mexx-img-2019.s3.amazonaws.com/Monitor-Gamer-22-Msi-Pro-Full-Hd-100Hz-Hdmi-Vga-5Ms-MP225V_50245_1.jpeg" alt="      style="width:100%; height:180px; object-fit:cover;">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-name">Monitor Gamer 22" Msi Pro Full Hd 100Hz Hdmi Vga 1Ms MP225V</div>
+                        <div class="product-desc">Mixto</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price">$131.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 6 -->
+                <div class="product-card" data-nombre="AMD Ryzen 7 7700" data-precio="249999">
+                    <div class="product-img-placeholder">
+                         <img src="https://mexx-img-2019.s3.amazonaws.com/Monitor-Gamer-24-Asus-Tuf-Gaming-Full-Hd-180Hz-1Ms-VG249QL3AJ_48433_1.jpeg" alt=""     style="width:100%; height:180px; object-fit:cover;">
+                    </div>
+                    <span class="product-badge badge-sale">-10%</span>
+                    <div class="product-body">
+                        <div class="product-name">Monitor Gamer 24" Asus Tuf Gaming Full Hd Ips 180Hz 1Ms VG249QL3A-J</div>
+                        <div class="product-desc">Colores vividos</div>
+                        <div class="product-footer">
+                            <div class="product-pricing">
+                                <span class="product-price-old">$132.999</span>
+                                <span class="product-price">$115.999</span>
+                            </div>
+                            <button class="add-btn agregar-carrito" title="Agregar al carrito">
+                                <i data-lucide="plus" style="width:16px;height:16px"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /product-grid -->
+
+            <div id="sinResultados" style="display:none" class="no-results">
+                <i data-lucide="search-x" style="width:40px;height:40px;color:#444"></i>
+                <p>No se encontraron productos.</p>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 Mamani's — Todos los derechos reservados ·
+            <span style="color: var(--orange)">tizixpk.github.io</span>
+        </p>
+    </footer>
+
+    <div id="toast">
+        <i data-lucide="check-circle" style="width:16px;height:16px;color:#4ade80"></i>
+        Producto agregado al carrito
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/seccion-procesadores.js"></script>
+</body>
+</html>
